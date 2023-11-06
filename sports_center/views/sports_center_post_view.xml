@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sports_center_post_form" model="ir.ui.view">
+        <field name="name">sports.center.post.form</field>
+        <field name="model">sports.center.post</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Post">
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Post</span>
+                        </div>
+                        <hr/>
+                        <group>
+                            <group>
+                                <field name="name" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                       placeholder="Name of the position..."/>
+                                <field name="salary_per_hour" modifiers="{&quot;required&quot;: true}"
+                                       class="form-control" placeholder="Payment per hour of work..."/>
+                            </group>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sports_center_post_tree" model="ir.ui.view">
+        <field name="name">sports.center.post.tree</field>
+        <field name="model">sports.center.post</field>
+        <field name="arch" type="xml">
+            <tree string="Post" sample="1">
+                <field name="name"/>
+                <field name="salary_per_hour"/>
+                <field name="name_post_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sports_center_post" model="ir.actions.act_window">
+        <field name="name">Post</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.post</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

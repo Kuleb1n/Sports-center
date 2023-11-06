@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sports_center_accrual_employee_view_form" model="ir.ui.view">
+        <field name="name">sports.center.accrual.employee.form</field>
+        <field name="model">sports.center.accrual.employee</field>
+        <field name="arch" type="xml">
+            <form string="Employees of the company">
+                <sheet>
+                    <div class="oe_title">
+                        <span class="o_form_label" style="font-size: 15px;">Data on the accruals of the salary of an
+                            employee of the tennis center
+                        </span>
+                    </div>
+                    <hr/>
+                    <group>
+                        <group>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    <field name="employee_id" widget="many2many">
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sports_center_accrual_employee_view_tree" model="ir.ui.view">
+        <field name="name">sports.center.accrual.employee.tree</field>
+        <field name="model">sports.center.accrual.employee</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="employee_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sports_center_accrual_employee" model="ir.actions.act_window">
+        <field name="name">Salary of employees</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.accrual.employee</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+</odoo>

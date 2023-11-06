@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sports_center_court_card_form" model="ir.ui.view">
+        <field name="name">sports.center.court.card.form</field>
+        <field name="model">sports.center.court.card</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Sports center court card">
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Sports center court card</span>
+                        </div>
+                        <hr/>
+                        <group>
+                            <group>
+                                <field name="name" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                       placeholder="Title..."/>
+                                <field name="sports_center_card_id" modifiers="{&quot;required&quot;: true}"
+                                       class="form-control" placeholder="Select the center card..." widget="selection"
+                                       attrs="{'invisible': [('sports_center_card_id', '=', True)]}"/>
+                            </group>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sports_center_court_card_kanban" model="ir.ui.view">
+        <field name="name">sports.center.court.card.kanban</field>
+        <field name="model">sports.center.court.card</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="card text-bg-light p-3" style="max-width: 28rem;">
+                            <div class="card-header">
+                                <div class="text-center">
+                                    <h2>
+                                        <field name="name"/>
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex w-125 align-items-center justify-content-between">
+                                    <strong>Center card:</strong>
+                                    <small class="text-body-secondary">
+                                        <field name="sports_center_card_id"/>
+                                    </small>
+                                </div>
+                                <hr/>
+                                <div class="row justify-content-around">
+                                    <div class="col-6">
+                                        <button name="action_create_tennis_court" class="btn btn-primary"
+                                                type="object" string="Create a tennis court"
+                                                data-hotkey="q" groups="sports_center.group_sport_center_manager"/>
+                                    </div>
+                                    <div class="col-6">
+                                        <button name="action_go_tennis_court" class="btn btn-primary"
+                                                type="object" string="Go to the tennis courts"
+                                                data-hotkey="w"/>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="d-grid gap-2">
+                                    <button name="action_go_schedule" class="btn btn-primary"
+                                            type="object" string="Go to the schedule"
+                                            data-hotkey="r"/>
+                                    <hr/>
+                                    <button name="action_sign_up_training_session" class="btn btn-primary"
+                                            type="object" string="Sign up for a training session"
+                                            data-hotkey="r" groups="sports_center.group_sport_center_manager"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_sports_center_court_card" model="ir.actions.act_window">
+        <field name="name">Sports center court card</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.court.card</field>
+        <field name="view_mode">kanban,form</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sports_center_user_form" model="ir.ui.view">
+        <field name="name">sports.center.customer.form</field>
+        <field name="model">sports.center.customer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="User">
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>
+                                User
+                            </span>
+                        </div>
+                        <hr/>
+                        <group>
+                            <group>
+                                <field name="name" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                       placeholder="Username..."/>
+                                <field name="email" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                       placeholder="Email..."/>
+                                <field name="phone_number" placeholder="Phone number"
+                                       modifiers="{&quot;required&quot;: true}" class="form-control"/>
+                            </group>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sports_center_user_tree" model="ir.ui.view">
+        <field name="name">sports.center.customer.tree</field>
+        <field name="model">sports.center.customer</field>
+        <field name="arch" type="xml">
+            <tree string="User" sample="1">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone_number" decoration-bf="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sports_center_user" model="ir.actions.act_window">
+        <field name="name">Users</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.customer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

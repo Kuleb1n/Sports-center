@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sports_center_court_form" model="ir.ui.view">
+        <field name="name">sports.center.court.form</field>
+        <field name="model">sports.center.court</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Tennis Court">
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Tennis Court</span>
+                        </div>
+                        <hr/>
+                        <group>
+                            <group>
+                                <field name="name" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                       placeholder="Title..."/>
+                                <field name="standard_rental_price" on_change="1"
+                                       modifiers="{&quot;required&quot;: true}" class="form-control"/>
+                                <field name="rental_price" on_change="1" modifiers="{&quot;required&quot;: true}"
+                                       class="form-control"/>
+                            </group>
+                            <group>
+                                <field name="season" modifiers="{&quot;readonly&quot;: true}" class="input-group-text"/>
+                                <field name="total_price" modifiers="{&quot;readonly&quot;: true}"
+                                       class="input-group-text"/>
+                            </group>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sports_center_court_tree" model="ir.ui.view">
+        <field name="name">sports.center.court.tree</field>
+        <field name="model">sports.center.court</field>
+        <field name="arch" type="xml">
+            <tree string="Tennis Court" sample="1">
+                <field name="name"/>
+                <field name="season"/>
+                <field name="sports_center_court_card_id"/>
+                <field name="standard_rental_price"/>
+                <field name="rental_price"/>
+                <field name="total_price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sports_center_court_kanban" model="ir.ui.view">
+        <field name="name">sports.center.court.kanban</field>
+        <field name="model">sports.center.court</field>
+        <field name="arch" type="xml">
+            <kanban sample="1">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="card text-bg-info mb-3" style="max-width: 28rem;">
+                            <div class="card-header">
+                                <div class="text-center">
+                                    <h2>
+                                        <field name="name"/>
+                                    </h2>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex w-125 align-items-center justify-content-between">
+                                    <strong>Time period of the year:</strong>
+                                    <small class="text-body-secondary">
+                                        <field name="season"/>
+                                    </small>
+                                </div>
+                                <hr/>
+                                <div class="d-flex w-125 align-items-center justify-content-between">
+                                    <strong>Standard cost of booking (one hour):</strong>
+                                    <small class="text-body-secondary">
+                                        <field name="standard_rental_price"/>
+                                    </small>
+                                </div>
+                                <div class="d-flex w-125 align-items-center justify-content-between">
+                                    <strong>Seasonality allowance (one hour):</strong>
+                                    <small class="text-body-secondary">
+                                        <field name="rental_price"/>
+                                    </small>
+                                </div>
+                                <hr/>
+                                <div class="d-flex w-125 align-items-center justify-content-between">
+                                    <strong>Final rent per hour:</strong>
+                                    <small class="text-body-secondary">
+                                        <field name="total_price"/>
+                                    </small>
+                                </div>
+                                <hr/>
+                                <div class="d-flex w-125 align-items-center justify-content-between">
+                                    <strong>Sports center court card:</strong>
+                                    <small class="text-body-secondary">
+                                        <field name="sports_center_court_card_id"/>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-transparent border-success">
+                                <div class="d-grid gap-2 col-10 mx-auto">
+                                    <button class="btn btn-primary" type="object" name="update_tennis_court"
+                                            string="Update Tennis court data"
+                                            groups="sports_center.group_sport_center_manager"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_sports_center_court" model="ir.actions.act_window">
+        <field name="name">Sports courts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.court</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+</odoo>

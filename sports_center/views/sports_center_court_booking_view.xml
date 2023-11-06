@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--    <record id="sports_center_court_booking_tree" model="ir.ui.view">-->
+    <!--        <field name="name">sports.center.court.booking.tree</field>-->
+    <!--        <field name="model">sports.center.court.booking</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <tree string="Booking">-->
+    <!--                <field name="sports_center_court_booking_time_ids"/>-->
+    <!--            </tree>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="sports_center_court_booking_form" model="ir.ui.view">
+        <field name="name">sports.center.court.booking.form</field>
+        <field name="model">sports.center.court.booking</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Booking">
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Sign up for a workout</span>
+                        </div>
+                        <hr/>
+                        <label for="sports_center_court_booking_time_ids" string="Booking of tennis courts:"/>
+                        <field name="sports_center_court_booking_time_ids" nolabel="1">
+                            <tree>
+                                <field name="date_registration_training"/>
+                                <field name="tennis_court_id" />
+                                <field name="training_start_time_id"/>
+                                <field name="training_end_time_id"/>
+                                <field name="employee_id"/>
+                                <field name="user_ids" widget="many2many_tags"/>
+                                <field name="type_training_id"/>
+                                <field name="duration" optional="hide"/>
+                            </tree>
+                        </field>
+                        <hr/>
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Calculation of the full cost of training</span>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="d-flex w-25 align-items-center justify-content-between">
+                                <span>Number of training hours:</span>
+                                <small class="text-body-secondary">
+                                    <field name="total_hours" class="input-group-text" nolabel="1"/>
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="d-flex w-25 align-items-center justify-content-between">
+                                <span>The cost of training:</span>
+                                <small class="text-body-secondary">
+                                    <field name="cost_training" class="input-group-text" nolabel="1"/>
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="d-flex w-25 align-items-center justify-content-between">
+                                <span>Discount:</span>
+                                <small class="text-body-secondary">
+                                    <field name="is_discount" modifiers="{&quot;readonly&quot;: true}"
+                                           class="input-group-text" nolabel="1"/>
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row" attrs="{'invisible': [('is_discount','=', False)]}">
+                            <div class="d-flex w-25 align-items-center justify-content-between">
+                                <span>Discount percentage:</span>
+                                <small class="text-body-secondary">
+                                    <field name="dimension_discount" class="input-group-text" nolabel="1"/>
+                                </small>
+                            </div>
+                        </div>
+                        <div class="row" attrs="{'invisible': [('is_discount','=', False)]}">
+                            <div class="d-flex w-25 align-items-center justify-content-between">
+                                <span>The discount is:</span>
+                                <small class="text-body-secondary">
+                                    <field name="discount_equal" class="input-group-text" nolabel="1"/>
+                                </small>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="d-flex w-25 align-items-center justify-content-between">
+                                <span>Final price:</span>
+                                <small class="text-body-secondary">
+                                    <field name="final_price"
+                                           class="input-group-text" nolabel="1"/>
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_sports_center_court_booking" model="ir.actions.act_window">
+        <field name="name">Sign up of workout</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.court.booking</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

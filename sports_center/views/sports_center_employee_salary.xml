@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sports_center_employee_salary_tree" model="ir.ui.view">
+        <field name="name">sports.center.employee.salary.tree</field>
+        <field name="model">sports.center.employee.salary</field>
+        <field name="arch" type="xml">
+            <tree string="Earnings of employees" sample="1">
+                <field name="current_year" decoration-info="current_year"/>
+                <field name="january" decoration-info="january"/>
+                <field name="february" decoration-info="february"/>
+                <field name="march" decoration-info="march"/>
+                <field name="may" decoration-info="may"/>
+                <field name="april" decoration-info="april"/>
+                <field name="june" decoration-info="june"/>
+                <field name="july" decoration-info="july"/>
+                <field name="august" decoration-info="august"/>
+                <field name="september" decoration-info="september"/>
+                <field name="october" decoration-info="october"/>
+                <field name="november" decoration-info="november"/>
+                <field name="december" decoration-info="december"/>
+                <field name="annual_salary" decoration-info="annual_salary"/>
+                <field name="employee_id" decoration-success="employee_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sports_center_employee_salary" model="ir.actions.act_window">
+        <field name="name">Earnings of employees</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.employee.salary</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>

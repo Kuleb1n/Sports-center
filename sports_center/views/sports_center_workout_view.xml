@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sports_center_workout_form" model="ir.ui.view">
+        <field name="name">sports.center.workout.form</field>
+        <field name="model">sports.center.workout</field>
+        <field name="arch" type="xml">
+            <form string="Workout">
+                <sheet>
+                    <div class="oe_title">
+                        <span class="o_form_label" style="font-size: 15px;">Workout</span>
+                    </div>
+                    <hr/>
+                    <group>
+                        <field name="name" class="form-control" required="True"
+                               placeholder="Enter the name of the workout..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sports_center_workout_tree" model="ir.ui.view">
+        <field name="name">sports.center.workout.tree</field>
+        <field name="model">sports.center.workout</field>
+        <field name="arch" type="xml">
+            <tree string="Workout" sample="1">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="action_sports_center_workout" model="ir.actions.act_window">
+        <field name="name">Workouts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.workout</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

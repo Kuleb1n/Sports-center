@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="edit_center_card_view_form" model="ir.ui.view">
+        <field name="name">edit.center.card.form</field>
+        <field name="model">edit.center.card</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Card">
+                    <div class="row justify-content-center">
+                        <div class="col-4" style="font-size: 15px;">
+                            <span>Updating the name of the center card</span>
+                        </div>
+                        <hr/>
+                        <div class="col-6">
+                            <group>
+                                <field name="new_name" modifiers="{&quot;required&quot;: true}"
+                                       class="form-control"/>
+                            </group>
+                        </div>
+                    </div>
+                </sheet>
+                <footer>
+                    <button name="update_name_center_card" string="Update" type="object" class="btn-primary"
+                            data-hotkey="q"/>
+                    <button string="Cancel" special="cancel" data-hotkey="z" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

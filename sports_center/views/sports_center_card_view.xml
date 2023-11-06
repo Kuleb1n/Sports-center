@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sports_center_card_kanban" model="ir.ui.view">
+        <field name="name">sports.center.card.kanban</field>
+        <field name="model">sports.center.card</field>
+        <field name="arch" type="xml">
+            <kanban sample="1">
+                <field name="name"/>
+                <field name="sports_center_employee_ids"/>
+                <field name="court_card_ids"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="container">
+                            <div class="row mb4">
+                                <div class="o_kanban_record_headings" style="text-align: center;">
+                                    <span class="oe_title fs-3" style="font-size: 16px">
+                                        <em>
+                                            <b>
+                                                <field name="name" on_change="1"/>
+                                            </b>
+                                        </em>
+                                    </span>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row justify-content-around">
+                                <div class="col-6">
+                                    <button name="action_staff" class="btn btn-outline-success" type="object"
+                                            string="Personnel information"
+                                            data-hotkey="q"/>
+                                </div>
+                                <div class="col-6">
+                                    <button name="action_earnings_employee" class="btn btn-outline-success"
+                                            type="object" string="Earnings of employees"
+                                            data-hotkey="w"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row justify-content-center">
+                                <div class="row">
+                                    <button name="action_financial_statements" class="btn btn-outline-success"
+                                            type="object" string="Financial statements"
+                                            data-hotkey="e"/>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="row justify-content-center">
+                                <div class="col-8">
+                                    <button name="action_tennis_court_card" class="btn btn-outline-success"
+                                            type="object" string="Sports Grounds Management Card"
+                                            data-hotkey="r"/>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span>A card for a sports center:</span>
+                                <small class="text-body-secondary">
+                                    <field name="sports_center_id" class="input-group-text" nolabel="1"/>
+                                </small>
+                            </div>
+                        </div>
+                        <button type="object" name="action_edit_center_card" class="btn btn-success"
+                                    string="Edit"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_sports_center_card_form" model="ir.ui.view">
+        <field name="name">sports.center.card.form</field>
+        <field name="model">sports.center.card</field>
+        <field name="arch" type="xml">
+            <form string="Sports Center card" create="0">
+                <sheet string="Sports Center card">
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Sports Center card</span>
+                        </div>
+                        <hr/>
+                        <group>
+                            <group>
+                                <field name="name" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                       placeholder="Enter a name for the Center card"/>
+                                <field name="sports_center_id" modifiers="{&quot;required&quot;: true}"
+                                       class="form-control" placeholder="Choose a sports center"
+                                       options="{'no_create': True}"/>
+                            </group>
+                        </group>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_sports_center_card" model="ir.actions.act_window">
+        <field name="name">Sports Center card</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.card</field>
+        <field name="view_mode">kanban,form</field>
+    </record>
+
+</odoo>
