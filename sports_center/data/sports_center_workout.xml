@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Training categories -->
+        <record id="sports_center_workout_individual" model="sports.center.workout">
+            <field name="name">Individual</field>
+        </record>
+
+        <record id="sports_center_workout_split" model="sports.center.workout">
+            <field name="name">Split</field>
+        </record>
+
+        <record id="sports_center_workout_group" model="sports.center.workout">
+            <field name="name">Group</field>
+        </record>
+    </data>
+</odoo>

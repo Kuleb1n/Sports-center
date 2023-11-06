@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="sports_center_court_booking_time_start_hour_7" model="sports.center.court.booking.time.start">
+            <field name="name">7</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_8" model="sports.center.court.booking.time.start">
+            <field name="name">8</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_9" model="sports.center.court.booking.time.start">
+            <field name="name">9</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_10" model="sports.center.court.booking.time.start">
+            <field name="name">10</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_11" model="sports.center.court.booking.time.start">
+            <field name="name">11</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_12" model="sports.center.court.booking.time.start">
+            <field name="name">12</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_13" model="sports.center.court.booking.time.start">
+            <field name="name">13</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_14" model="sports.center.court.booking.time.start">
+            <field name="name">14</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_15" model="sports.center.court.booking.time.start">
+            <field name="name">15</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_16" model="sports.center.court.booking.time.start">
+            <field name="name">16</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_17" model="sports.center.court.booking.time.start">
+            <field name="name">17</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_18" model="sports.center.court.booking.time.start">
+            <field name="name">18</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_19" model="sports.center.court.booking.time.start">
+            <field name="name">19</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_20" model="sports.center.court.booking.time.start">
+            <field name="name">20</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_start_hour_21" model="sports.center.court.booking.time.start">
+            <field name="name">21</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_8" model="sports.center.court.booking.time.end">
+            <field name="name">8</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_9" model="sports.center.court.booking.time.end">
+            <field name="name">9</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_10" model="sports.center.court.booking.time.end">
+            <field name="name">10</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_11" model="sports.center.court.booking.time.end">
+            <field name="name">11</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_12" model="sports.center.court.booking.time.end">
+            <field name="name">12</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_13" model="sports.center.court.booking.time.end">
+            <field name="name">13</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_14" model="sports.center.court.booking.time.end">
+            <field name="name">14</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_15" model="sports.center.court.booking.time.end">
+            <field name="name">15</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_16" model="sports.center.court.booking.time.end">
+            <field name="name">16</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_17" model="sports.center.court.booking.time.end">
+            <field name="name">17</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_18" model="sports.center.court.booking.time.end">
+            <field name="name">18</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_19" model="sports.center.court.booking.time.end">
+            <field name="name">19</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_20" model="sports.center.court.booking.time.end">
+            <field name="name">20</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_21" model="sports.center.court.booking.time.end">
+            <field name="name">21</field>
+        </record>
+
+        <record id="sports_center_court_booking_time_end_hour_22" model="sports.center.court.booking.time.end">
+            <field name="name">22</field>
+        </record>
+    </data>
+</odoo>

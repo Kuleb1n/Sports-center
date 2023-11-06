@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_sports_center_form" model="ir.ui.view">
+        <field name="name">sports.center.form</field>
+        <field name="model">sports.center</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Sports center">
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Sports center</span>
+                        </div>
+                        <hr/>
+                        <div class="container text-center">
+                            <div class="row justify-content-center">
+                                <div class="col-6">
+                                    <group>
+                                        <field name="name" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                               placeholder="Enter the name of the sports center"/>
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sports_center_tree" model="ir.ui.view">
+        <field name="name">sports.center.tree</field>
+        <field name="model">sports.center</field>
+        <field name="arch" type="xml">
+            <tree string="Sports center" sample="1">
+                <field name="name" decoration-bf="1" decoration-info="name"/>
+                <field name="center_card_ids" decoration-bf="1" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sports_center" model="ir.actions.act_window">
+        <field name="name">Sports center</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

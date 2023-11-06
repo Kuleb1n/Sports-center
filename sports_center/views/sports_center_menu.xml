@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="sports_center_menu_root"
+              name="Sports center"
+              sequence="5"/>
+
+    <menuitem id="sports_center_menu"
+              name="Sports center"
+              parent="sports_center_menu_root"
+              action="action_sports_center"
+              sequence="10"/>
+
+    <menuitem id="action_sports_center_card_menu"
+              name="Sports Center card"
+              action="action_sports_center_card"
+              parent="sports_center_menu_root"
+              groups="sports_center.group_sport_center_finance_department"
+              sequence="15"/>
+
+    <menuitem id="action_sports_center_court_card_menu"
+              name="Sports center court card"
+              action="action_sports_center_court_card"
+              parent="sports_center_menu_root"
+              groups="sports_center.group_sport_center_coach"
+              sequence="20"/>
+
+    <menuitem id="action_sports_center_employee_menu"
+              name="Employees"
+              action="action_sports_center_employee"
+              parent="sports_center_menu_root"
+              sequence="25"/>
+
+    <menuitem id="action_sports_workout_menu"
+              name="Workouts"
+              action="action_sports_center_workout"
+              parent="sports_center_menu_root"
+              groups="sports_center.group_sport_center_manager"
+              sequence="30"/>
+
+    <menuitem id="action_sports_center_user_menu"
+              name="Users"
+              action="action_sports_center_user"
+              parent="sports_center_menu_root"
+              groups="sports_center.group_sport_center_manager"
+              sequence="35"/>
+
+</odoo>

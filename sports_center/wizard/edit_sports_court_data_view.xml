@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_edit_sports_court_data_form" model="ir.ui.view">
+        <field name="name">edit.sports.court.data.form</field>
+        <field name="model">edit.sports.court.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Tennis Court">
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Updating sports court data</span>
+                        </div>
+                        <hr/>
+                        <group>
+                            <group>
+                                <field name="name" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                       placeholder="New name..."/>
+                                <field name="standard_rental_price" on_change="1"
+                                       modifiers="{&quot;required&quot;: true}" class="form-control"/>
+                                <field name="rental_price" on_change="1" modifiers="{&quot;required&quot;: true}"
+                                       class="form-control"/>
+                            </group>
+                            <group>
+                                <!--                                <field name="season" modifiers="{&quot;readonly&quot;: true}" class="input-group-text"/>-->
+                                <!--                                <field name="total_price" modifiers="{&quot;readonly&quot;: true}"-->
+                                <!--                                       class="input-group-text"/>-->
+                            </group>
+                        </group>
+                    </div>
+                    <footer>
+                        <button name="update_sports_court" string="Update" type="object" class="btn-primary"
+                                data-hotkey="q"/>
+                        <button string="Cancel" special="cancel" data-hotkey="w" class="btn-secondary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

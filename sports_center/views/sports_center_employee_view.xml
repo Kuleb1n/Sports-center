@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sports_center_employee_view_tree" model="ir.ui.view">
+        <field name="name">sports.center.employee.tree</field>
+        <field name="model">sports.center.employee</field>
+        <field name="arch" type="xml">
+            <tree sample="1">
+                <field name="name"/>
+                <field name="surname"/>
+                <field name="patronymic"/>
+                <field name="birth_date"/>
+                <field name="card_id"/>
+                <field name="company_id" decoration-info="company_id"/>
+                <field name="user_id" decoration-info="user_id"/>
+                <field name="sports_center_post_ids" widget="many2many_tags"/>
+                <button name="action_view_earnings" type="object" string="Income" class="btn btn-primary"
+                        attrs="{'invisible': [('user_id', '=', False)]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sports_center_employee_view_form" model="ir.ui.view">
+        <field name="name">sports.center.employee.form</field>
+        <field name="model">sports.center.employee</field>
+        <field name="arch" type="xml">
+            <form string="Employees of the company">
+                <sheet string="Employee">
+                    <div class="text-center">
+                        <span class="o_form_label" style="font-size: 15px;">Data of the center's employee</span>
+                    </div>
+                    <hr/>
+                    <group>
+                        <group>
+                            <field name="name" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                   placeholder="Name"/>
+                            <field name="surname" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                   placeholder="Surname"/>
+                            <field name="patronymic" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                   placeholder="Patronymic"/>
+                            <field name="email" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                   placeholder="Email"/>
+                        </group>
+                        <group>
+                            <field name="birth_date" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                   placeholder="Date of birth"/>
+                            <field name="card_id" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                   placeholder="Select a sports center card" options="{'no_create': True}"
+                                   widget="selection"/>
+                            <field name="company_id" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                   placeholder="Company" widget="selection"/>
+                            <field name="user_id" modifiers="{&quot;required&quot;: true}" class="form-control"
+                                   widget="selection"/>
+                        </group>
+                    </group>
+                    <hr/>
+                    <group>
+                        <field name="sports_center_post_ids">
+                            <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="salary_per_hour"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sports_center_employee" model="ir.actions.act_window">
+        <field name="name">Employees of the company</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>
+

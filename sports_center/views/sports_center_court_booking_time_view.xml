@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="sports_center_court_booking_time_form" model="ir.ui.view">
+        <field name="name">sports.center.court.booking.time.form</field>
+        <field name="model">sports.center.court.booking.time</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Booking time">
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Booking Time</span>
+                        </div>
+                        <hr/>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="container text-center">
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>Training date:
+                                                    <field name="date_registration_training"
+                                                           modifiers="{&quot;required&quot;: true}"
+                                                           class="form-control" nolabel="1"/>
+                                                </span>
+                                            </div>
+                                            <div class="col">
+                                                <span>Tennis court:
+                                                    <field name="tennis_court_id"
+                                                           modifiers="{&quot;required&quot;: true}"
+                                                           widget="selection"
+                                                           class="form-control" nolabel="1"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>
+                                                    Beginning in:
+                                                    <div class="input-group-text"
+                                                         attrs="{'invisible': [('tennis_court_id', '!=', False)]}">
+                                                        Initially select a date and a training ground
+                                                    </div>
+                                                    <field name="training_start_time_id" class="form-control"
+                                                           widget="selection" nolabel="1"
+                                                           modifiers="{&quot;required&quot;: true}"
+                                                           attrs="{'invisible': [('tennis_court_id', '=', False)]}"/>
+                                                </span>
+                                            </div>
+                                            <div class="col">
+                                                <span>End in:
+                                                    <div class="input-group-text"
+                                                         attrs="{'invisible': [('training_start_time_id', '!=', False)]}">
+                                                        Initially select a date and a training ground
+                                                    </div>
+                                                    <field name="training_end_time_id" class="form-control"
+                                                           widget="selection" nolabel="1"
+                                                           modifiers="{&quot;required&quot;: true}"
+                                                           attrs="{'invisible': [('training_start_time_id', '=', False)]}"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="container text-center">
+                                        <div class="row">
+                                            <span>Coach:
+                                                <div class="input-group-text"
+                                                     attrs="{'invisible': [('training_end_time_id','!=', False)]}">
+                                                    To display a list of available coaches, select the court and
+                                                    training time
+                                                </div>
+                                                <field name="employee_id" modifiers="{&quot;required&quot;: true}"
+                                                       class="form-control" widget="selection" nolabel="1"
+                                                       attrs="{'invisible': [('training_end_time_id','=', False)]}"/>
+                                            </span>
+                                        </div>
+                                        <span>Type of training:
+                                            <field name="type_training_id" modifiers="{&quot;required&quot;: true}"
+                                                   class="form-control" widget="selection" nolabel="1"/>
+                                        </span>
+                                        <span>Training user(s):
+                                            <field name="user_ids" modifiers="{&quot;required&quot;: true}"
+                                                   class="form-control" widget="many2many_tags"
+                                                   nolabel="1"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="container">
+                            <div class="row">
+                                <div class="oe_title fs-3" style="font-size: 14px;">
+                                    <span>Information:</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <group>
+                                        <field name="duration" modifiers="{&quot;readonly&quot;: true}"
+                                               class="input-group-text"/>
+                                    </group>
+                                </div>
+                                <div class="col order-5">
+                                    <group>
+                                        <field name="end_training" modifiers="{&quot;readonly&quot;: true}"
+                                               class="input-group-text"/>
+                                    </group>
+                                </div>
+                                <div class="col order-1">
+                                    <group>
+                                        <field name="start_training" modifiers="{&quot;readonly&quot;: true}"
+                                               class="input-group-text"/>
+                                    </group>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <group>
+                                        <field name="cost_training" modifiers="{&quot;readonly&quot;: true}"
+                                               class="input-group-text"/>
+                                    </group>
+                                </div>
+                                <div class="col order-5">
+                                    <group>
+                                    </group>
+                                </div>
+                                <div class="col order-1">
+                                    <group>
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sports_center_court_booking_time_calendar_event_form" model="ir.ui.view">
+        <field name="name">sports.center.court.booking.time.form2</field>
+        <field name="model">sports.center.court.booking.time</field>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Change/cancellation of booking">
+                    <div class="row">
+                        <div class="oe_title fs-3" style="font-size: 15px;">
+                            <span>Change/cancellation of booking</span>
+                        </div>
+                        <hr/>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="container text-center">
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>Training date:
+                                                    <field name="date_registration_training"
+                                                           modifiers="{&quot;required&quot;: true}"
+                                                           class="form-control" nolabel="1"/>
+                                                </span>
+                                            </div>
+                                            <div class="col">
+                                                <span>Tennis court:
+                                                    <field name="tennis_court_id"
+                                                           modifiers="{&quot;required&quot;: true}"
+                                                           widget="selection"
+                                                           class="form-control" nolabel="1"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <span>
+                                                    Beginning in:
+                                                    <field name="training_start_time_id" class="form-control"
+                                                           widget="selection" nolabel="1"
+                                                           modifiers="{&quot;required&quot;: true}"/>
+                                                </span>
+                                            </div>
+                                            <div class="col">
+                                                <span>End in:
+                                                    <field name="training_end_time_id" class="form-control"
+                                                           widget="selection" nolabel="1"
+                                                           modifiers="{&quot;required&quot;: true}"/>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="container text-center">
+                                        <div class="row">
+                                            <span>Coach:
+                                                <field name="employee_id" modifiers="{&quot;required&quot;: true}"
+                                                       class="form-control" widget="selection" nolabel="1"
+                                                />
+                                            </span>
+                                        </div>
+                                        <span>Type of training:
+                                            <field name="type_training_id" modifiers="{&quot;required&quot;: true}"
+                                                   class="form-control" widget="selection" nolabel="1"/>
+                                        </span>
+                                        <span>Training user(s):
+                                            <field name="user_ids" modifiers="{&quot;required&quot;: true}"
+                                                   class="form-control" widget="many2many_tags"
+                                                   nolabel="1"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button name="action_cancel_booking" class="btn btn-primary"
+                                    type="object" string="Cancel booking"
+                                    data-hotkey="q"/>
+                        </div>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sports_center_court_booking_time_calendar" model="ir.ui.view">
+        <field name="name">sports.center.court.booking.time.calendar</field>
+        <field name="model">sports.center.court.booking.time</field>
+        <field name="priority" eval="2"/>
+        <field name="arch" type="xml">
+            <calendar string="Booking time" create="0" date_start="start_training" date_stop="end_training"
+                      date_delay="duration" mode="week" color="tennis_court_id"
+                      event_open_popup="%(sports_center.view_sports_center_court_booking_time_calendar_event_form)s">
+                <!--                      form_view_id="%(sports_center.sports_center_court_booking_time_form)d">-->
+                <field name="tennis_court_id" filters="1"/>
+                <field name="user_ids"/>
+                <field name="type_training_id" filters="1"/>
+                <field name="employee_id" filters="1"/>
+            </calendar>
+        </field>
+    </record>
+
+
+    <record id="sports_center_court_booking_time_tree" model="ir.ui.view">
+        <field name="name">sports.center.court.booking.time.tree</field>
+        <field name="model">sports.center.court.booking.time</field>
+        <field name="arch" type="xml">
+            <tree string="Booking time">
+                <field name="court_booking_id"/>
+                <field name="user_ids"/>
+                <field name="tennis_court_id"/>
+                <field name="type_training_id"/>
+                <field name="employee_id"/>
+                <field name="booking_status"/>
+                <field name="start_training"/>
+                <field name="end_training"/>
+                <field name="cost_training"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sports_center_court_booking_time" model="ir.actions.act_window">
+        <field name="name">Training schedule</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sports.center.court.booking.time</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+
+</odoo>
